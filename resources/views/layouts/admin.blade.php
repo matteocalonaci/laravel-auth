@@ -56,20 +56,23 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{route('admin.project.index')}}">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.project.index' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.project.index') }}">
                                     <i class="fa-solid fa-diagram-project me-2"></i>Projects
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{route('admin.project.create')}}">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.project.create' ? 'bg-secondary' : '' }}"
+                                    href="{{route('admin.project.create')}}">
                                     <i class="fa-solid fa-plus fa-lg fa-fw me-2"></i>Create
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{route('admin.type.index')}}">
-                                    <i class="fa-solid fa-t me-2"></i>Type
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.type.index' ? 'bg-secondary' : '' }}"
+                                    href="{{route('admin.type.index')}}">
+                                    <i class="fa-solid fa-t m-2"></i>Type
                                 </a>
                             </li>
 
