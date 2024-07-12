@@ -1,1 +1,51 @@
-@import '~bootstrap/scss/bootstrap'
+
+@import '~bootstrap/scss/bootstrap';
+
+body{
+    background-color: rgb(1, 11, 63) ;
+    color: plum;
+
+
+}
+
+.card_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.card{
+    width: 22rem;
+    height: 15rem;
+    margin: 1rem;
+    background-color: rgba(255, 255, 255, 0.118);
+    margin-bottom: 5rem;
+}
+
+.card_type{
+    width: calc(100% / 3);
+    height: 15rem;
+    margin: 1rem;
+    background-color: rgba(255, 255, 255, 0.118);
+    margin-bottom: 5rem;
+}
+
+
+
+a {
+    color: plum;
+    padding: 0.3rem;
+    text-decoration: none;
+    background-color: rgba(193, 126, 255, 0.356);
+    border-radius: 5rem;
+}
+
+p,
+h3,
+li{
+    color: plum;
+
+}
