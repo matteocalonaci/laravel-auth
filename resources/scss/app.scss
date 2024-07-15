@@ -28,10 +28,11 @@ body{
 
 .card_type{
     width: calc(100% / 3);
-    height: 15rem;
+    height: 20rem;
     margin: 1rem;
     background-color: rgba(255, 255, 255, 0.118);
     margin-bottom: 5rem;
+    padding: 1rem;
 }
 
 
@@ -45,6 +46,7 @@ a {
 }
 
 p,
+h4,
 li{
     color: plum;
 
