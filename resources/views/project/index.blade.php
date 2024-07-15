@@ -9,6 +9,9 @@
     <h3 class="mt-4"> <a href="{{route("admin.project.show", $progetti)}}">Nome Type {{ $progetti->name}}</a></h3>
 <p>Description: {{$progetti->description}}</p>
 <p>creation date: {{$progetti->creation_date}}</p>
+<p>Type: {{ $progetti['type_id']}}</p>
+
+
 
 <div class="card-footer text-center">
         <a href="{{ route('admin.project.show', $progetti->id) }}" class="btn btn-primary p-">Vai ai dettagli</a>
