@@ -6,12 +6,13 @@
 @foreach ($catalogo as $type)
 <div class="card_type">
 
-    <h3 class="mt-4 mb-4"> <a href="{{route("admin.type.show", $type)}}">{{ $type->name}}</a></h3>
+    <h3 class="mt-4"> <a href="{{route("admin.type.show", $type)}}">{{ $type->name}}</a></h3>
     <p>Description: {{$type->description}}</p>
-<p>Icon: {{$type->icon}}</p>
-<p class="mt-4 mb-4"> <a href="{{route("admin.type.show", $catalogo->type)}}">{{ $catalogo->type->name}}</a></p>
+    <p>Creation date: {{$type->icon}}</p>
+    {{-- <p class="mt-4"> <a href="{{route("admin.type.show", $catalogo->type)}}">{{ $catalogo->type->name}}</a></p> --}}
 
 </div>
 @endforeach
 </div>
 @endsection
+
