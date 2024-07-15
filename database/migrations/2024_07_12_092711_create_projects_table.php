@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             //creazione colonne tabella
             $table->string("name");
+            $table->text('thumb');
             $table->text("description");
             $table->date("creation_date");
             $table->boolean("is_completed");

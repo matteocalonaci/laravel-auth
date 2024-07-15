@@ -6,7 +6,10 @@
 <div class="card_container">
 @foreach ($catalogo as $progetti)
 <div class="card">
-    <h3 class="mt-4"> <a href="{{route("admin.project.show", $progetti)}}">Nome Type {{ $progetti->name}}</a></h3>
+    <h4 class="mt-4 mb-4"> <a href="{{route("admin.project.show", $progetti)}}">{{ $progetti->name}}</a></h4>
+    <div class="img_container">
+        <img src="{{$progetti['thumb']}}" alt="">
+    </div>
 <p>Description: {{$progetti->description}}</p>
 <p>creation date: {{$progetti->creation_date}}</p>
 <p>Type: {{ $progetti['type_id']}}</p>
