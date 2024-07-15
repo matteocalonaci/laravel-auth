@@ -11,6 +11,10 @@
             <input type="text" class="form-control" name="name" id="name" value="{{$project->name}}">
         </div>
         <div class="mb-3">
+            <label for="thumb" class="form-label p-2">Immagine:</label>
+            <input type="text" class="form-control w-100" name="thumb" id="thumb" value="{{$project->thumb}}">
+        </div>
+        <div class="mb-3">
             <label for="description" class="form-label">Description</label>
             <input type="text" class="form-control" name="description" id="description" value="{{$project->description}}">
         </div>

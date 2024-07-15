@@ -43,13 +43,15 @@ class ProjectController extends Controller
         //sono i dati che attivano dal form
         $data = $request->validate([
             "name" => "required|min:5|max:50",
+            "thumb" => "required|url",
             "description" => "required|min:10|max:200",
             "creation_date" => "required|date",
+            "type_id" => "required",
+
         ]);
         $newProject = new Project();
         $newProject->is_completed=false;
         $newProject->fill($data);
-        dump($data);
 
         $newProject->save();
         return redirect()->route('admin.project.show', ['project' => $newProject]);
