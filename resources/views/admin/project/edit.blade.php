@@ -18,6 +18,13 @@
             <label for="creation_date" class="form-label">Cration date</label>
             <input type="text" class="form-control" name="creation_date" id="creation_date" value="{{$project->creation_date}}">
         </div>
+        <div class="mb-3">
+           <select name="type_id" id="">
+            @foreach($catalogo as $type)
+            <option value="{{ $type->id }}">{{ $type->name }}</option>
+            @endforeach
+           </select>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -24,9 +25,14 @@ class ProjectController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view('admin.project.create');
+    public function create(){
+        $catalogo = Type::all();
+        $data =
+        [
+            'catalogo' => $catalogo,
+
+        ];
+        return view('admin.project.create', $data);
     }
 
     /**
@@ -64,8 +70,10 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        $catalogo = Type::all();
         $data = [
             'project' => $project,
+            'catalogo' => $catalogo,
         ];
         return view('admin.project.edit', $data);
     }
@@ -80,6 +88,7 @@ class ProjectController extends Controller
         $project->name= $data['name'];
         $project->description= $data['description'];
         $project->creation_date= $data['creation_date'];
+        $project->type_id= $data['type_id'];
 
         $project->save();
 
