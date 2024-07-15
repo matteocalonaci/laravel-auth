@@ -19,6 +19,8 @@ return new class extends Migration
             $table->text("description");
             $table->date("creation_date");
             $table->boolean("is_completed");
+            $table->foreignId("type_id")->constrained();
+            //relazioneuno a molti
         });
     }
 
