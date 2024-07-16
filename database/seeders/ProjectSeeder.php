@@ -26,7 +26,9 @@ class ProjectSeeder extends Seeder
         $newProject->is_completed=false;
 
         $newProject->save();
-        }
+    }
+    // $data = Project::find("id");
+        $newProject->technologies()->attach($faker->numberBetween(1,4)) ;
     }
 }
 

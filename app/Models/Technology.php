@@ -14,4 +14,11 @@ class Technology extends Model
         "description",
         "icon"
     ];
+
+
+    public function projects()
+    {
+        //  return $this->belongsToMany(Project::class);
+        return $this->belongsToMany("App\Models\Project");
+    }
 }

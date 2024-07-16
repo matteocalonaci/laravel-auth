@@ -17,7 +17,7 @@
             " class="d-inline">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger p-1">Elimina</button>
+            <input type="submit" class="btn btn-danger p-1">Elimina</input>
             </form>
     </div>
 
