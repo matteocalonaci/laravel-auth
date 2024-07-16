@@ -26,7 +26,13 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        return view('admin.technology.index');
+        $catalogo = Technology::all();
+        $data =
+        [
+            'catalogo' => $catalogo,
+
+        ];
+        return view('admin.technology.create', $data);
     }
 
     /**
@@ -77,7 +83,7 @@ class TechnologyController extends Controller
 
         $technology->name= $data['name'];
         $technology->description= $data['description'];
-        $technology->creation_date= $data['icon'];
+        $technology->icon= $data['icon'];
 
         $technology->save();
 
