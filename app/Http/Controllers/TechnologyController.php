@@ -12,7 +12,13 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        //
+        $catalogo = Technology::all();
+        $data =
+            [
+                'catalogo' => $catalogo,
+
+            ];
+            return view('admin.technology.index', $data);
     }
 
     /**
@@ -20,7 +26,7 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.technology.index');
     }
 
     /**
@@ -28,7 +34,16 @@ class TechnologyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //sono i dati che attivano dal form
+        $data = $request->validate([
+            "name" => "required|min:5|max:50",
+            "description" => "required|min:10|max:2000",
+            "icon" => "required|min:5|max:50",
+        ]);
+        $newTechnology = new Technology();
+        $newTechnology->fill($data);
+        $newTechnology->save();
+        return redirect()->route('admin.technology.show', ['technology' =>  $newTechnology]);
     }
 
     /**
@@ -36,7 +51,10 @@ class TechnologyController extends Controller
      */
     public function show(Technology $technology)
     {
-        //
+        $data = [
+            'technology' => $technology,
+        ];
+        return view('admin.technology.show', $data);
     }
 
     /**
@@ -44,7 +62,10 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
-        //
+        $data = [
+            'technology' => $technology,
+        ];
+        return view('admin.technology.edit', $data);
     }
 
     /**
@@ -52,7 +73,15 @@ class TechnologyController extends Controller
      */
     public function update(Request $request, Technology $technology)
     {
-        //
+        $data = $request->all();
+
+        $technology->name= $data['name'];
+        $technology->description= $data['description'];
+        $technology->creation_date= $data['icon'];
+
+        $technology->save();
+
+        return redirect()->route('admin.technology.show', ['technology'=> $technology] );
     }
 
     /**
@@ -60,6 +89,7 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
-        //
+        $technology->delete();
+        return redirect()->route('admin.technology.index');
     }
 }
