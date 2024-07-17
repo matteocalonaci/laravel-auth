@@ -22,6 +22,12 @@
 </div>
 <p>Description: {{$progetti->description}}</p>
 <p>creation date: {{$progetti->creation_date}}</p>
+<p class="card-text">
+    <span>Tecnologia Usata:</span>
+    @foreach ($project->technologies as $technology)
+        <span class="{{ $technology->icon }}">{{ $technology->name }}</span>
+    @endforeach
+    </p>
 
 <div class="card-footer text-center">
         <a href="{{ route('admin.project.show', $progetti->id) }}" class="btn btn-primary p-">Vai ai dettagli</a>

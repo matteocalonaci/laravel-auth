@@ -22,8 +22,17 @@
         <p class="mt-4">Description: {{$project->description}}</p>
         <p>creation date: {{$project->creation_date}}</p>
         <p>Type: {{ $project['type_id']}}</p>
+
         <p class="mt-4 mb-4"> <a href="{{route("admin.type.show", $project->type)}}">{{ $project->type->name}}</a></p>
-        {{-- <p class="mt-4 mb-4"> <a href="{{route("admin.technology.show", $project->technology)}}">{{ $project->technology->name}}</a></p> --}}
+        {{-- <p class="mt-4 mb-4"> <a href="{{route("admin.technology.show", $project->technologies)}}">{{ $project->technologies->}}</a></p> --}}
+        <p class="card-text">
+        <span>Tecnologia Usata:</span>
+        @foreach ($project->technologies as $technology)
+            <span class="{{ $technology->icon }}">{{ $technology->name }}</span>
+        @endforeach
+        </p>
+
+
 
 
 
@@ -40,6 +49,6 @@
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger p-1">Elimina</button>
                     </form>
-            </div>
+        </div>
 
 @endsection

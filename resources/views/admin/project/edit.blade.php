@@ -29,6 +29,13 @@
 																@endforeach
 												</select>
 								</div>
+								<label for="technologies" class="form-label">Technologies</label>
+								<select class="form-select dorm-select-lg" name="" id="">
+												@foreach ($catalog as $technology)
+																<option value="{{ $technology->id }}">{{ $technology->name }}</option>
+												@endforeach
+								</select>
+								</div>
 								<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
 @endsection

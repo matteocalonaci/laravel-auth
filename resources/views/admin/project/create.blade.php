@@ -32,11 +32,22 @@
             @enderror
         </div>
         <div class="mb-3">
-            <select name="type_id" id="">
+            <label for="type" class="form-label">Type</label>
+            <select class="form-select dorm-select-lg" name="type_id" id="">
             @foreach($catalogo as $type)
                 <option value="{{ $type->id }}">{{ $type->name }}</option>
                 @endforeach
             </select>
+         </div>
+         <div class="mb-3">
+         <label for="technologies" class="form-label">Technologies</label>
+         <div class="container_tech" style="display: flex; justify-content:space-between; align-items:center; width:50rem">
+         @foreach($catalog as $technology)
+         <input type="checkbox">
+             <option value="{{ $technology->id }}">{{ $technology->name }}</option>
+             @endforeach
+         </div>
+            {{-- <select class="form-select dorm-select-lg" name="technologies[]" id="technologies" multiple> --}}
          </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

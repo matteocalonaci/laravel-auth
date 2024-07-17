@@ -16,9 +16,12 @@ class ProjectController extends Controller
     public function index()
     {
         $catalogo = Project::all();
+        $catalog = Technology::all();
+
         $data =
             [
                 'catalogo' => $catalogo,
+                'catalog' => $catalog
 
             ];
         return view('project.index', $data);
@@ -51,6 +54,10 @@ class ProjectController extends Controller
             "description" => "required|min:10|max:200",
             "creation_date" => "required|date",
             "type_id" => "required",
+            "technologies" => "array",
+            "technologies.*" => "exists:technology,id"
+
+
 
         ]);
 
