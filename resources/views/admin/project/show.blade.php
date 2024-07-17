@@ -7,12 +7,26 @@
         <div class="card">
             <h4 class="mt-4 mb-4">{{ $project['name'] }}</h4>
             <div class="img_container">
+
+                @if (Str::startsWith($project->thumb, "http"))
+
                 <img src="{{$project['thumb']}}" alt="">
+
+                @else
+
+                <img src="{{asset('storage/' . $project->thumb)}}" alt="">
+
+                @endif
+
             </div>
         <p class="mt-4">Description: {{$project->description}}</p>
         <p>creation date: {{$project->creation_date}}</p>
         <p>Type: {{ $project['type_id']}}</p>
         <p class="mt-4 mb-4"> <a href="{{route("admin.type.show", $project->type)}}">{{ $project->type->name}}</a></p>
+        {{-- <p class="mt-4 mb-4"> <a href="{{route("admin.technology.show", $project->technology)}}">{{ $project->technology->name}}</a></p> --}}
+
+
+
 
 
 

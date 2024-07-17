@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\Type;
+use App\Models\Technology;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -27,9 +29,11 @@ class ProjectController extends Controller
      */
     public function create(){
         $catalogo = Type::all();
+        $catalog = Technology::all();
         $data =
         [
             'catalogo' => $catalogo,
+            'catalog' => $catalog,
 
         ];
         return view('admin.project.create', $data);
@@ -43,12 +47,23 @@ class ProjectController extends Controller
         //sono i dati che attivano dal form
         $data = $request->validate([
             "name" => "required|min:5|max:50",
-            "thumb" => "required|url",
+            "thumb" => "required|image",
             "description" => "required|min:10|max:200",
             "creation_date" => "required|date",
             "type_id" => "required",
 
         ]);
+
+        $data['thumb'] = $request->thumb;
+
+        if($request->has("thumb")){
+
+            $img_path= Storage::put('images', $request->thumb);
+            $data['thumb'] = $img_path;
+
+        }
+
+
         $newProject = new Project();
         $newProject->is_completed=false;
         $newProject->fill($data);
@@ -73,9 +88,11 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $catalogo = Type::all();
+        $catalog = Technology::all();
         $data = [
             'project' => $project,
             'catalogo' => $catalogo,
+            'catalog' => $catalog,
         ];
         return view('admin.project.edit', $data);
     }

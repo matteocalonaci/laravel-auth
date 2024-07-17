@@ -12,7 +12,7 @@
         </div>
         <div class="m-3">
             <label for="thumb" class="form-label p-2">Immagine:</label>
-            <input type="text" class="form-control w-100" name="thumb" id="thumb" value="{{$project->thumb}}">
+            <input type="file" class="form-control w-100" name="thumb" id="thumb" value="{{$project->thumb}}">
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>

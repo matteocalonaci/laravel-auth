@@ -49,7 +49,7 @@ class TechnologyController extends Controller
         $newTechnology = new Technology();
         $newTechnology->fill($data);
         $newTechnology->save();
-        return redirect()->route('admin.technology.show', ['technology' =>  $newTechnology]);
+        return redirect()->route('admin.technology.show', ['technology' => $newTechnology]);
     }
 
     /**

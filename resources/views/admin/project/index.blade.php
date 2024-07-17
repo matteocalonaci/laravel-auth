@@ -6,7 +6,20 @@
 <div class="card_container">
 @foreach ($catalogo as $progetti)
 <div class="card">
-    <h3 class="mt-4"> <a href="{{route("admin.project.show", $progetti)}}">Nome Type {{ $progetti->name}}</a></h3>
+<h3 class="mt-4"> <a href="{{route("admin.project.show", $progetti)}}">Nome Type {{ $progetti->name}}</a></h3>
+<div class="img_container">
+
+    @if (Str::startsWith($progetti->thumb, "http"))
+
+    <img src="{{$progetti['thumb']}}" alt="">
+
+    @else
+
+    <img src="{{asset('storage/' . $progetti->thumb)}}" alt="">
+
+    @endif
+
+</div>
 <p>Description: {{$progetti->description}}</p>
 <p>creation date: {{$progetti->creation_date}}</p>
 

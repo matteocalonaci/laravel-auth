@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-    <form method="POST" action="{{ route('project.store') }}" class="p-5">
-        @csrf
+<form method="POST" action="{{ route('admin.project.store') }}" class="p-5" enctype="multipart/form-data">
+    @csrf
         <div class="mb-3">
             <label class="form-label">Name</label>
             <input type="text" class="form-control" name="name">
@@ -12,7 +12,7 @@
         </div>
         <div class="mb-3">
             <label for="thumb" class="form-label p-2">Immagine:</label>
-            <input type="text" class="form-control w-100" name="thumb" id="thumb">
+            <input type="file" class="form-control w-100" name="thumb" id="thumb">
             @error('thumb')
             <div>{{$message}}</div>
             @enderror
