@@ -43,7 +43,7 @@
          <label for="technologies" class="form-label">Technologies</label>
          <div class="container_tech" style="display: flex; justify-content:space-between; align-items:center; width:50rem">
          @foreach($catalog as $technology)
-         <input type="checkbox">
+         <input type="checkbox" name="technology[]" value="technology">
              <option value="{{ $technology->id }}">{{ $technology->name }}</option>
              @endforeach
          </div>
