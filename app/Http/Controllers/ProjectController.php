@@ -58,7 +58,6 @@ class ProjectController extends Controller
             "technologies.*" => "exists:technology,id"
 
 
-
         ]);
 
         $data['thumb'] = $request->thumb;
