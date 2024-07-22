@@ -21,3 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('projects', [ProjectController::class, "index"]);
+
+//ROTTA ULTIMI PROGETTI
+Route::get('projects/latest', [ProjectController::class, "latest"]);
+
+//ROTTA SINGOLI PROGETTI
+Route::get('projects/{$id}', [ProjectController::class, "show"]);
