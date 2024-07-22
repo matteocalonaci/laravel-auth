@@ -26,4 +26,4 @@ Route::get('projects', [ProjectController::class, "index"]);
 Route::get('projects/latest', [ProjectController::class, "latest"]);
 
 //ROTTA SINGOLI PROGETTI
-Route::get('projects/{$id}', [ProjectController::class, "show"]);
+Route::get('projects/{id}',[ProjectController::class,'show']);

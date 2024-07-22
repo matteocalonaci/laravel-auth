@@ -8,33 +8,37 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-   public function index(){
-    return  response()->json([
-        'success' => true,
-        'projects' => Project::with('technologies','type')->orderByDesc('id')->paginate()
-    ]);
-}
-public function latest(){
-    return  response()->json([
-        'success' => true,
-        'projects' => Project::with('technologies','type')->orderByDesc('id')->take(6)->get()
-    ]);
-}
+    public function index()
+    {
+        return  response()->json([
+            'success' => true,
+            'projects' => Project::with('technologies', 'type')->orderByDesc('id')->paginate()
+        ]);
+    }
+    public function latest()
+    {
+        return  response()->json([
+            'success' => true,
+            'projects' => Project::with('technologies', 'type')->orderByDesc('id')->take(3)->get()
+        ]);
+    }
 
-public function show($id){
-        $project =  Project::with('technologies','type')->where('id',$id)->first();
+    public function show($id)
+    {
+        $projects = Project::with('technologies', 'type')->where('id', $id)->first();
 
-        if ($project){
-            return  response()->json([
+        if ($projects) {
+            return response()->json([
                 'success' => true,
-                'project' => $project
-                ]);
+                'projects' => $projects
+            ]);
+
         } else {
-            return  response()->json([
-                'success' => true,
-                'project' => "404 not found"
-                ]);
+            return response()->json([
+                'success' => false,
+                'message' => "404 not found"
+            ]);
         }
-
-}
+        dd($projects);
+    }
 }
