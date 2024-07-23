@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,6 @@ Route::get('projects/latest', [ProjectController::class, "latest"]);
 
 //ROTTA SINGOLI PROGETTI
 Route::get('projects/{id}',[ProjectController::class,'show']);
+
+//ROTTA INVIO EMAIL
+Route::post('lead', [LeadController::class,'store']);
