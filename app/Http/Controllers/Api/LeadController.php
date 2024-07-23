@@ -18,9 +18,9 @@ class LeadController extends Controller
 
         //validare gli use input
         $validator = Validator::make($data, [
-            'name' => 'required',
+            'name' => 'required| min:5',
             'email' => 'required|email',
-            'message' => 'required'
+            'message' => 'required|min:10'
         ]);
 
         //controllare eventuali errori di validazione e stamparli formato json
