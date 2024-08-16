@@ -4,7 +4,7 @@
 	<h2>Single Project</h2>
 
     <div class="card_container">
-        <div class="card">
+        <div class="card-show">
             <h4 class="mt-4 mb-4">{{ $project['name'] }}</h4>
             <div class="img_container">
 

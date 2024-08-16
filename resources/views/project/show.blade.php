@@ -19,17 +19,18 @@
                 @endif
 
             </div>
-        <p class="mt-4">Description: {{$project->description}}</p>
-        <p>creation date: {{$project->creation_date}}</p>
-        <p>Type: {{ $project['type_id']}}</p>
-        <p class="mt-4 mb-4"> <a href="{{route("admin.type.show", $project->type)}}">{{ $project->type->name}}</a></p>
-        <p class="card-text">
-            <span>Tecnologia Usata:</span>
-            @foreach ($project->technologies as $technology)
-                <span class="{{ $technology->icon }}">{{ $technology->name }}</span>
-            @endforeach
-            </p>
+            <div class="text-container">
+                <p class="mt-4">Description: {{ strlen($progetti->description) > 100 ? substr($progetti->description, 0, 100) . '...' : $progetti->description }}</p><p>creation date: {{$progetti->creation_date}}</p>
+            <p>Type: {{ $progetti['type_id']}}</p>
+            <p class="card-text">
+                <span>Tecnologia Usata:</span>
+                @foreach ($progetti->technologies as $technology)
 
+                    <span class="{{ $technology->icon }}">{{ $technology->name }}</span>
+                @endforeach
+                </p>
+
+            </div>
 
 
 
